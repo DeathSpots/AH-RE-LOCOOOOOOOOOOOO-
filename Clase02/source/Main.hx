@@ -11,4 +11,11 @@ class Main extends Sprite
 		super();
 		addChild(new FlxGame(0, 0, MenuState));
 	}
+	private var nave:Player;
+	public function new()
+	{
+		super();
+		addChild(new FlxGame(0, 0, Player));
+		
+	}
 }

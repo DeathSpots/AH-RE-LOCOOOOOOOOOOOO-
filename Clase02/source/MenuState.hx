@@ -14,6 +14,7 @@ class MenuState extends FlxState
 	{
 		super.create();
 		
+		/*
 		cuadradito = new FlxSprite(300,400);  //los numeros que agregues dentro de los parentesis son las cordenadas donde empieza el Objeto
 		//	FlxSprite cuadradito = new FlxSprite();
 		
@@ -23,6 +24,7 @@ class MenuState extends FlxState
 		//cuadradito.color = FlxColor.CYAN;	//	ARGB: AARRGGBB
 		
 		add(cuadradito);
+		*/
 	}
 
 	override public function update(elapsed:Float):Void
