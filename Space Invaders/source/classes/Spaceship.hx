@@ -5,8 +5,6 @@ import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 
 
-
-
 /**
  * ...
  * @author ...
@@ -17,7 +15,7 @@ class Spaceship extends FlxSprite
 
 	public function new(X:Float=0, Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
-		super(X, Y, SimpleGraphic);
+		super(300, 400, "assets/images/X-Fighter.png");
 		
 		nave = new FlxSprite();
 	}
@@ -29,16 +27,11 @@ class Spaceship extends FlxSprite
 		
 		velocity.x = 0;
 		
-		
-		if (FlxG.keys.pressed.D && x < FlxG.width - width)
-			x += 20;
-		
+		if (FlxG.keys.pressed.D && x < FlxG.width - width-2)
+			x += 10;
 		
 		if (FlxG.keys.pressed.A && x > 0)
-			x -= 20;
-
-		
-		
+			x -= 10;
 	}
 	
 }
