@@ -20,7 +20,6 @@ class Spaceship extends FlxSprite
 		super(X, Y, SimpleGraphic);
 		
 		nave = new FlxSprite();
-		nave.makeGraphic(64, 64);
 	}
 	
 	override public function update(elapsed : Float):Void{
@@ -30,13 +29,14 @@ class Spaceship extends FlxSprite
 		
 		velocity.x = 0;
 		
-		if (FlxG.keys.pressed.D /*&& nave.x < FlxG.width - nave.width*/){
-			velocity.x += 200;
-		}
 		
-		if (FlxG.keys.pressed.A /*&& nave.x > FlxG.width - FlxG.width*/){
-			velocity.x -= 200;
-		}
+		if (FlxG.keys.pressed.D && x < FlxG.width - width)
+			x += 20;
+		
+		
+		if (FlxG.keys.pressed.A && x > 0)
+			x -= 20;
+
 		
 		
 	}

@@ -18,7 +18,7 @@ class PlayState extends FlxState
 		FlxG.mouse.visible = false;
 		super.create();
 		
-		_nave = new classes.Spaceship(300,400);
+		_nave = new classes.Spaceship(300, 400, "assets/images/X-Fighter.png");
 		
 		add(_nave);
 	 
