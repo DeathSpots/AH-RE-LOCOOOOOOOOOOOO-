@@ -30,12 +30,12 @@ class Spaceship extends FlxSprite
 		velocity.x = 0;
 		
 		
-		if (FlxG.keys.pressed.D && x < FlxG.width - width)
-			x += 20;
+		if (FlxG.keys.pressed.D && x < FlxG.width - width - 4)
+			x += 10;
 		
 		
 		if (FlxG.keys.pressed.A && x > 0)
-			x -= 20;
+			x -= 10;
 
 		
 		

@@ -1,5 +1,6 @@
 package states;
 
+import classes.Enemy;
 import classes.Spaceship;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -12,6 +13,7 @@ class PlayState extends FlxState
 {
 	
 	private var _nave:classes.Spaceship;
+	private var _enemigo:Enemy;
 	
 	override public function create():Void
 	{
@@ -21,6 +23,9 @@ class PlayState extends FlxState
 		_nave = new classes.Spaceship(300, 400, "assets/images/X-Fighter.png");
 		
 		add(_nave);
+		
+		_enemigo = new Enemy(100,200);
+		add(_enemigo);
 	 
 	}
 
