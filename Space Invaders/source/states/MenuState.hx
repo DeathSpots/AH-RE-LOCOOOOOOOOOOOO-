@@ -17,9 +17,15 @@ class MenuState extends FlxState
 		add(new FlxText(180, 100, 0, "SPACE INVADERS", 30));
 		add(new FlxText(250, 150, 0, "(ah re loco)", 15));
 		
-		
-		
-	}
+		var startButton:FlxButton = new FlxButton(50, 50, "Start", OnClickButton);
+		startButton.setPosition((FlxG.width - startButton.width) / 2, (FlxG.height - startButton.height) / 2);
+        add(startButton);
+    }
+ 
+    function OnClickButton():Void
+    {
+        FlxG.switchState(new PlayState());
+    }
 
 	override public function update(elapsed:Float):Void
 	{
