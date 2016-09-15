@@ -12,13 +12,14 @@ class Enemy extends FlxSprite
 	private var enemigo:FlxSprite;
 	private var _Xinicio:Float;
 
-	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
+	public function new(?X:Float = 0, ?Y:Float = 0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
-		super(X, Y, SimpleGraphic);
+		super(X, Y, "assets.images.Hearth.png");
 		
 		enemigo = new FlxSprite();
-		enemigo.makeGraphic(30, 30);
+		
 		_Xinicio = X;
+		
 		velocity.x = 20;
 		
 	}

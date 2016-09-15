@@ -3,6 +3,7 @@ package classes;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
+import states.PlayState;
 
 
 /**
@@ -32,6 +33,15 @@ class Spaceship extends FlxSprite
 		
 		if (FlxG.keys.pressed.A && x > 0)
 			x -= 10;
+			
+			
+			if (FlxG.keys.justPressed.SPACE)
+		      
+		    {
+			var bullet:FlxSprite = cast(cast(FlxG.state, PlayState).playerBullets.recycle(), FlxSprite);
+			bullet.reset(x + width/2 - bullet.width/2, y);
+			bullet.velocity.y = -140;
+		    }
 	}
 	
 }
