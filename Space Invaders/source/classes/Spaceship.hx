@@ -23,6 +23,9 @@ class Spaceship extends FlxSprite
 		
 		nave = new FlxSprite();
 		SoloUno = false;
+		_disparo = new Shoot(x/* + (width - _disparo.width) / 2*/, y/* - _disparo.height*/, "assets/images/Laser.png");
+		_disparo.setPosition(x + (width - _disparo.width) / 2, y - _disparo.height);
+
 	}
 	
 	override public function update(elapsed : Float):Void{
@@ -39,7 +42,7 @@ class Spaceship extends FlxSprite
 			x -= 10;
 			
 			
-		if (FlxG.keys.pressed.SPACE/* && SoloUno == false*/){
+		if (FlxG.keys.pressed.SPACE && SoloUno == false){
 			SoloUno = true;
 			_disparo = new Shoot(x/* + (width - _disparo.width) / 2*/, y/* - _disparo.height*/, "assets/images/Laser.png");
 			_disparo.setPosition(x + (width - _disparo.width) / 2, y - _disparo.height);
@@ -47,7 +50,7 @@ class Spaceship extends FlxSprite
 		}
 		if (_disparo.y < 0){
 			_disparo.destroy;
-			//SoloUno = false;
+			SoloUno = false;
 		}
 	}
 }
