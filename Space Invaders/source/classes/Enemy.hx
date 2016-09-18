@@ -1,5 +1,6 @@
 package classes;
 
+import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 
@@ -10,35 +11,37 @@ import flixel.system.FlxAssets.FlxGraphicAsset;
 class Enemy extends FlxSprite
 {
 	private var enemigo:FlxSprite;
-	private var _Xinicio:Float;
+	static private var changeX:Int;
+	static private var changeY:Int;	
 
 	public function new(?X:Float = 0, ?Y:Float = 0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
-		super(X, Y, "assets.images.Hearth.png");
+		super(X, Y, "assets/images/Hearth.png");
 		
 		enemigo = new FlxSprite();
 		
-		_Xinicio = X;
-		
-		velocity.x = 20;
+		changeX = 1;
+		changeY = 1;
 		
 	}
 	
 	override public function update(elapsed:Float):Void{
 		super.update(elapsed);
-		if(x > _Xinicio + 8){
-			x = _Xinicio + 8;
-			velocity.x = -velocity.x;
-			y = ++y;
-			
-			
-		}
 		
-		if(x < _Xinicio - 8){
-			x = _Xinicio - 8;
-			velocity.x = -velocity.x;
-			y = ++y;
+		x += 5 * changeX;
+		y += changeY;
+		if (x < 0 || x > FlxG.width - width) 
+		{
+			changeX = changeX *-1;
+			changeY = 10;
 		}
-		
+		else 
+			changeY = 0;
+	}
+	public function distanciaEntreEnemigos(N:Int):Float
+	{
+		var _n:Float;
+		_n = (FlxG.width - width * N) / (N + 1);
+		return _n;
 	}
 }

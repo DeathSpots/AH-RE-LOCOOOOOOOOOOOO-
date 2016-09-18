@@ -16,9 +16,12 @@ class PlayState extends FlxState
 {
 	
 	private var _nave:classes.Spaceship;
-	private var _enemigo:Enemy;
-	//private var _enemigo:FlxGroup;
-	public var playerBullets:FlxGroup;
+	//private var _enemigo:Enemy;
+	private var _enemigo:FlxGroup;
+	//public var playerBullets:FlxGroup;
+	private var cantEnemigosX:Int;
+	private var cantEnemigosY:Int;
+	private var distanciaEnemigosX:Float;
 	
 	override public function create():Void
 	{
@@ -26,47 +29,34 @@ class PlayState extends FlxState
 		super.create();
 		
 		_nave = new classes.Spaceship();
-		
 		add(_nave);
 		
-		var numPlayerBullets:Int = 1;
-		playerBullets = new FlxGroup(numPlayerBullets);
-		var sprite:FlxSprite;
-		
-		for (i in 0...numPlayerBullets)			
-		{
-			
-			sprite = new FlxSprite( -100, -100);	
-			
-			sprite.makeGraphic(2, 8);			
-			sprite.exists = false;
-			
-			playerBullets.add(sprite);			
-		}
-		
-		add(playerBullets);
-		
-		_enemigo = new Enemy(300, 200);
-		add(_enemigo);
-		
-		
-	
-		/*var Naliens:Int = 50;
+		cantEnemigosX = 7;
+		cantEnemigosY = 3;
+		//_enemigo = new Enemy(300, 200);
+		//add(_enemigo);
+		var Naliens:Int = cantEnemigosX * cantEnemigosY;
 		_enemigo = new FlxGroup(Naliens);
 		var a:Enemy;
-		var colors:Array<Int>;
 		
-	colors = [FlxColor.BLUE, (FlxColor.BLUE | FlxColor.GREEN), FlxColor.GREEN, (FlxColor.GREEN | FlxColor.RED), FlxColor.RED];
+		for (i in 0 ...cantEnemigosY)
+		{
+			for (j in 0 ...cantEnemigosX) 
+			{
+				a = new Enemy();
+				a.setPosition(a.distanciaEntreEnemigos(cantEnemigosX) * (j + 1) + a.width * j, 10 + a.height * i + 5 * i);
+				add(a);
+			}
+		}
 		
 		
 		
-		
-		for(i in 0...Naliens){
+		/*for(i in 0...Naliens){
 			
 			a = new Enemy(8 + (i % 10) * 32, 24 + Std.int(i / 10) * 32,	colors[Std.int(i / 10)]);
 			_enemigo.add(a);
-		}
-		*/
+		}*/
+		
 
 	}
 
