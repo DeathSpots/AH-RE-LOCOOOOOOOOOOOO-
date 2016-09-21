@@ -26,7 +26,6 @@ class Spaceship extends FlxSprite
 		//CONSTROLES
 		super.update(elapsed);
 		
-		velocity.x = 0;
 		
 		if (FlxG.keys.pressed.D && x < FlxG.width - width-2)
 			x += 10;

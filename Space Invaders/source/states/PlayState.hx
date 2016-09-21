@@ -16,9 +16,11 @@ class PlayState extends FlxState
 {
 	
 	private var _nave:classes.Spaceship;
-	private var _enemigo:Enemy;
-	//private var _enemigo:FlxGroup;
+	private var _enemigo:FlxGroup;
 	public var playerBullets:FlxGroup;
+	
+	//escudos
+	private var _shields:FlxGroup;
 	
 	override public function create():Void
 	{
@@ -46,27 +48,33 @@ class PlayState extends FlxState
 		
 		add(playerBullets);
 		
-		_enemigo = new Enemy(300, 200);
-		add(_enemigo);
-		
 		
 	
-		/*var Naliens:Int = 50;
+		var Naliens:Int = 50;
 		_enemigo = new FlxGroup(Naliens);
 		var a:Enemy;
-		var colors:Array<Int>;
-		
-	colors = [FlxColor.BLUE, (FlxColor.BLUE | FlxColor.GREEN), FlxColor.GREEN, (FlxColor.GREEN | FlxColor.RED), FlxColor.RED];
-		
-		
 		
 		
 		for(i in 0...Naliens){
 			
-			a = new Enemy(8 + (i % 10) * 32, 24 + Std.int(i / 10) * 32,	colors[Std.int(i / 10)]);
+			a = new Enemy(45 + (i % 10) * 55, 24 + Std.int(i / 10) * 32);
 			_enemigo.add(a);
 		}
-		*/
+		
+		add(_enemigo);
+		
+		_shields = new FlxGroup();
+		
+		for (i in 0...64)
+		{
+			sprite = new FlxSprite(160 + 80 * Std.int(i / 16) + (i % 4) * 4, FlxG.height - 120 + (Std.int((i % 16) / 4) * 4));
+			sprite.active = false;
+			sprite.makeGraphic(4, 4);
+			_shields.add(sprite);
+		}
+		
+		add(_shields);
+		
 
 	}
 
