@@ -12,6 +12,7 @@ import flixel.system.FlxAssets.FlxGraphicAsset;
 class Shoot extends FlxSprite
 {
 	private var disparo:FlxSprite;
+	//static private var soloUno:Bool;
 	
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
@@ -22,8 +23,7 @@ class Shoot extends FlxSprite
 	
 	override public function update(elapsed : Float):Void{
 		
-		y -= 1;
-
+		y -= 15;
 	}
 	
 }
