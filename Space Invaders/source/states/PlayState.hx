@@ -78,17 +78,5 @@ class PlayState extends FlxState
 
 	}
 
-	override public function update(elapsed:Float):Void
-	{
-		
-		
-		FlxG.overlap(playerBullets, _enemigo, stuffHitStuff);	
-		super.update(elapsed);
-	}
 	
-	private function stuffHitStuff(Object1:FlxObject, Object2:FlxObject):Void
-	{
-		Object1.kill();
-		Object2.kill();
-	}
 }
