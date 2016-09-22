@@ -13,17 +13,19 @@ class Enemy extends FlxSprite
 	private var enemigo:FlxSprite;
 	private var _Xinicio:Float;
 	static private var CambioDir:Bool;
+	static private var Direccion:Int;
 
 	public function new(?X:Float = 0, ?Y:Float = 0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
-		super(X, Y, "assets.images.Hearth.png");
+		super(X, Y, "assets/images/Hearth.png");
 		
 		enemigo = new FlxSprite();
 		
 		_Xinicio = X;
 		
-		velocity.x = 20;
+		velocity.x = -20;
 		CambioDir = false;
+		Direccion = 1;
 		
 	}
 	
@@ -43,23 +45,26 @@ class Enemy extends FlxSprite
 			y = ++y;
 		}
 		*/
+		velocity.x = 2000 * Direccion;
 		
-		if (x > FlxG.width - 8){
-			CambioDir = true;
-			
-		}
-		if (x < FlxG.width - FlxG.width){
-			CambioDir = false;
-			
-		}
-		
-		if(CambioDir=false){
-			velocity.x = -velocity.x;
+		if (x > FlxG.width - width){
+			//CambioDir = true;
+			Direccion = -1;
 			y = ++y;
+		}
+		if (x < 0){
+			//CambioDir = false;
+			Direccion = 1;
+			y = ++y;
+		}
+		
+		/*if(CambioDir=false){
+			velocity.x = -velocity.x;
+			//y = ++y;
 		}
 		if(CambioDir=true){
 			velocity.x = -velocity.x;
-			y = ++y;
-		}
+			//y = ++y;
+		}*/
 	}
 }
