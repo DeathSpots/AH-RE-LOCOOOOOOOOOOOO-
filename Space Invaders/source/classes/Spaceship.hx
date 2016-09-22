@@ -2,9 +2,11 @@ package classes;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.group.FlxGroup;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import states.PlayState;
 import classes.Shoot;
+import flixel.FlxObject;
 
 
 /**
@@ -14,6 +16,7 @@ import classes.Shoot;
 class Spaceship extends FlxSprite
 {
 	private var nave:FlxSprite;
+	private var entidad:FlxGroup;
 	private var SoloUno:Bool;
 	private var _disparo:Shoot;
 
@@ -28,6 +31,19 @@ class Spaceship extends FlxSprite
 
 	}
 	
+	public function ColDisparo (entidad:FlxGroup){
+		
+		FlxG.collide(_disparo, entidad, stuffHitStuff);
+		
+	}
+	
+	private function stuffHitStuff(Object1:FlxObject, Object2:FlxObject):Void
+	{
+		Object1.destroy();
+		Object2.destroy();
+		SoloUno = false;
+	}
+	
 	override public function update(elapsed : Float):Void{
 		
 		//CONSTROLES
@@ -35,10 +51,10 @@ class Spaceship extends FlxSprite
 		
 		
 		if (FlxG.keys.pressed.RIGHT && x < FlxG.width - width-2)
-			x += 10;
+			x += 5;
 		
 		if (FlxG.keys.pressed.LEFT && x > 0)
-			x -= 10;
+			x -= 5;
 			
 			
 		if (FlxG.keys.pressed.SPACE && SoloUno == false){
@@ -51,7 +67,10 @@ class Spaceship extends FlxSprite
 			_disparo.destroy;
 			SoloUno = false;
 		}
+		ColDisparo(entidad);
 	}
+	
+	
 }
 
  
