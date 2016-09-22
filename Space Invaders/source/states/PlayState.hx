@@ -20,6 +20,9 @@ class PlayState extends FlxState
 	//public var playerBullets:FlxGroup;
 	private var _vsPlayerBullets:FlxGroup;
 	
+	public var alienBullets:FlxGroup;
+	private var _vsAlienBullets:FlxGroup;
+	
 	//escudos
 	private var _shields:FlxGroup;
 	
@@ -67,12 +70,12 @@ class PlayState extends FlxState
 		_shields = new FlxGroup();
 		var sprite:FlxSprite;
 		
-		//for (i in 0...64)
-		//{
-			sprite = new FlxSprite(160 + 80 * Std.int(1 / 16)  + (1 % 4) * 4, FlxG.height - 120 + (Std.int((1 % 16) / 4) * 4));
-			sprite.makeGraphic(30, 30);
+		for (i in 0...64)
+		{
+			sprite = new FlxSprite(160 + 80 * Std.int(i / 16)  + (i % 4) * 4, FlxG.height - 120 + (Std.int((i % 16) / 4) * 4));
+			sprite.makeGraphic(4, 4 );
 			_shields.add(sprite);
-		//}
+		}
 		
 		add(_shields);
 		
@@ -80,13 +83,16 @@ class PlayState extends FlxState
 		_vsPlayerBullets.add(_shields);
 		_vsPlayerBullets.add(_enemigo);
 		
-
+		
+		
 	}
 	
 	override public function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
 		_nave.ColDisparo(_vsPlayerBullets);
+		
+		
 		
 	}
 	

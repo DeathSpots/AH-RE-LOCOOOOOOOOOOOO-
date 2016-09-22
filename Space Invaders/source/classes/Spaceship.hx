@@ -17,6 +17,7 @@ class Spaceship extends FlxSprite
 {
 	private var nave:FlxSprite;
 	private var entidad:FlxGroup;
+	
 	private var SoloUno:Bool;
 	private var _disparo:Shoot;
 
