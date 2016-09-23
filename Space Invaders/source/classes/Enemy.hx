@@ -92,6 +92,11 @@ class Enemy extends FlxSprite
 		_relojDisparo = 1 + FlxG.random.float() * 10;
 	}
 	
-	
+	public function distanciaEnemigos(CE:Int):Float
+	{
+		var Distancia:Float;
+		Distancia = (FlxG.width - width * CE) / (CE+1);
+		return Distancia;
+	}
 	
 }

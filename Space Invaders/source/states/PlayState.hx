@@ -1,6 +1,7 @@
 package states;
 
 import classes.Enemy;
+import classes.EnemyGroup;
 import classes.Shoot;
 import classes.Spaceship;
 import flixel.FlxG;
@@ -23,6 +24,10 @@ class PlayState extends FlxState
 	public var alienBullets:FlxGroup;
 	private var _vsAlienBullets:FlxGroup;
 	
+	private var enjambre:EnemyGroup;
+	private var CEX:Int;
+	private var CEY:Int;
+	
 	//escudos
 	private var _shields:FlxGroup;
 	
@@ -34,6 +39,9 @@ class PlayState extends FlxState
 		_nave = new classes.Spaceship();
 		
 		add(_nave);
+		
+		enjambre = new EnemyGroup(10, 5);
+		add(enjambre);
 		/*
 		var numPlayerBullets:Int = 1;
 		playerBullets = new FlxGroup(numPlayerBullets);
@@ -54,17 +62,17 @@ class PlayState extends FlxState
 		*/
 		
 	
-		var Naliens:Int = 50;
-		_enemigo = new FlxGroup(Naliens);
-		var a:Enemy;
+		//var Naliens:Int = 50;
+		//_enemigo = new FlxGroup(Naliens);
+		//var a:Enemy;
 		
 		
-		for(i in 0...Naliens){
+		/*for(i in 0...Naliens){
 			
 			a = new Enemy(45 + (i % 10) * 55, 24 + Std.int(i / 10) * 32);
 			_enemigo.add(a);
 		}
-		
+		*/
 		add(_enemigo);
 		
 		_shields = new FlxGroup();
