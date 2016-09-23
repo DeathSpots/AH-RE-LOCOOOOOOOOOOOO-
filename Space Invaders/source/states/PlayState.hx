@@ -50,8 +50,8 @@ class PlayState extends FlxState
 		
 		for (i in 0...64 )
 		{
-			var sprite:FlxSprite = new FlxSprite(160 + 80 * Std.int(i / 16)  + (i % 4) * 4, FlxG.height - 120 + (Std.int((i  % 16) / 4) * 4));
-			sprite.makeGraphic(4, 4);
+			var sprite:FlxSprite = new FlxSprite(30 + 30 * Std.int(i / 16)  + (i % 4) * 2, FlxG.height - 50 + (Std.int((i  % 16) / 4) * 2));
+			sprite.makeGraphic(2, 2);
 			_shields.add(sprite);
 		}
 	
