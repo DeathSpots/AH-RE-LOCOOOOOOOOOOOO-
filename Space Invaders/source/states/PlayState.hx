@@ -4,6 +4,7 @@ import classes.Enemy;
 import classes.EnemyGroup;
 import classes.Shoot;
 import classes.Spaceship;
+import classes.StaticReferences;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -38,6 +39,8 @@ class PlayState extends FlxState
 		_nave = new classes.Spaceship();
 		
 		add(_nave);
+		StaticReferences._nave = _nave;
+		
 		
 		enjambre = new EnemyGroup(10, 5);
 		add(enjambre);
@@ -65,16 +68,11 @@ class PlayState extends FlxState
 	}
 	
 	override public function update(elapsed:Float):Void
-	{
-		for(i in 0...enjambre.length){
-			_vsPlayerBullets.add(cast(enjambre.members[i], Enemy).bullet);
-			
-		}
-		
+	{		
 		super.update(elapsed);
 		_nave.ColDisparo(_vsPlayerBullets);
 		
-		cast(enjambre.members[0], Enemy).ColBullet(_vsAlienBullets);
+		//cast(enjambre.members[0], Enemy).ColBullet(_vsAlienBullets);
 	}
 	
 }

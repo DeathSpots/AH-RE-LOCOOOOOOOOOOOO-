@@ -18,7 +18,7 @@ class Enemy extends FlxSprite
 
 	static private var CambioDir:Bool;
 	private var _relojDisparo:Float;
-	public var bullet:FlxSprite;
+
 	private var entidad2:FlxGroup;
 
 	public function new(?X:Float = 0, ?Y:Float = 0, ?SimpleGraphic:FlxGraphicAsset) 
@@ -31,19 +31,8 @@ class Enemy extends FlxSprite
 		
 	}
 	
-	public function ColBullet (entidad2:FlxGroup){
-		
-		FlxG.collide(bullet, entidad2, stuffHitStuff2);
-		
-	}
 	
-	private function stuffHitStuff2(Object1:FlxObject, Object2:FlxObject):Void
-	{
-		
-		Object1.kill();
-		Object2.kill();
-		
-	}
+	
 	
 	override public function update(elapsed:Float):Void{
 		super.update(elapsed);
@@ -56,18 +45,8 @@ class Enemy extends FlxSprite
 		if(_relojDisparo <= 0){
 			
 			reloj();
-			bullet = new FlxSprite();
-			bullet.makeGraphic(10, 10);
-			bullet.reset(x + width / 2 - bullet.width / 2, y);
-			bullet.velocity.y = 50;
-			FlxG.state.add(bullet);
-		
+			var bullet:EnemyBullet = new EnemyBullet(x + width / 2, y);		
 		}
-		
-		if (bullet.y > FlxG.height){
-			bullet.destroy;
-		}
-		
 	}
 	
 	private function reloj():Void{
