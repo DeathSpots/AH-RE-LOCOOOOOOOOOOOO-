@@ -33,41 +33,4 @@ class EnemyGroup extends FlxGroup
 		//Direccion = 1;
 		N = -1;
 	}
-	override public function update(elapsed:Float):Void{
-		super.update(elapsed);
-		
-		for (i in 0 ...Enemigossss.length) 
-		{
-			N = Enemigossss[i].cambioDireccion();
-			trace(N);
-		}
-		
-		for (i in 0 ...Enemigossss.length) 
-		{
-			Enemigossss[i].velocity.x = 100*N;
-		}
-		//_enemigo.velocity.x = 100 * Direccion;
-		
-		
-		/*if (_enemigo.x > FlxG.width - _enemigo.width)
-		{
-			Direccion =-1;
-		}
-		
-		if (_enemigo.x < 0)
-		{
-			Direccion =-1;
-		}
-		*/
-		/*if (x > FlxG.width - width){
-			//CambioDir = true;
-			Direccion = -1;
-			y = ++y;
-		}
-		if (x < 0){
-			//CambioDir = false;
-			Direccion = 1;
-			y = ++y;
-		}*/
-	}
 }

@@ -23,7 +23,7 @@ class Spaceship extends FlxSprite
 
 	public function new(X:Float=0, Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
-		super(300, 400, "assets/images/X-Fighter.png");
+		super(300, 400, "assets/images/Player.png");
 		
 		nave = new FlxSprite();
 		SoloUno = false;
