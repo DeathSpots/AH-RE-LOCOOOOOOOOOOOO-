@@ -12,20 +12,20 @@ class Enemy extends FlxSprite
 {
 	private var enemigo:FlxSprite;
 	private var _Xinicio:Float;
-	static private var CambioDir:Bool;
-	static private var Direccion:Int;
+	//static private var CambioDir:Bool;
+	//static private var Direccion:Int;
 
 	public function new(?X:Float = 0, ?Y:Float = 0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
-		super(X, Y, "assets/images/Hearth.png");
+		super(X, Y, "assets/images/Enemy.png");
 		
 		enemigo = new FlxSprite();
 		
-		_Xinicio = X;
+		//velocity.y = 10;
 		
-		velocity.x = -20;
-		CambioDir = false;
-		Direccion = 1;
+		//velocity.x = -100;
+		/*CambioDir = false;
+		Direccion = 1;*/
 		
 	}
 	
@@ -45,7 +45,7 @@ class Enemy extends FlxSprite
 			y = ++y;
 		}
 		*/
-		velocity.x = 2000 * Direccion;
+		/*velocity.x = 2000 * Direccion;
 		
 		if (x > FlxG.width - width){
 			//CambioDir = true;
@@ -56,7 +56,7 @@ class Enemy extends FlxSprite
 			//CambioDir = false;
 			Direccion = 1;
 			y = ++y;
-		}
+		}*/
 		
 		/*if(CambioDir=false){
 			velocity.x = -velocity.x;
@@ -66,5 +66,20 @@ class Enemy extends FlxSprite
 			velocity.x = -velocity.x;
 			//y = ++y;
 		}*/
+	}
+	public function distanciaEnemigos(CE:Int):Float
+	{
+		var _distancia:Float;
+		_distancia = (FlxG.width - width * CE) / (CE+1);
+		return _distancia;
+	}
+	public function cambioDireccion():Int
+	{
+		var Direccion:Int = 1;
+		if (x > FlxG.width - width)
+			Direccion = -1;
+		if (x < 0)
+			Direccion = 1;
+		return Direccion;
 	}
 }
