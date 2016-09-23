@@ -23,11 +23,11 @@ class Spaceship extends FlxSprite
 
 	public function new(X:Float=0, Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
-		super(300, 400, "assets/images/Player.png");
+		super(80, 120, "assets/images/Palyer_8bits.png");
 		
 		nave = new FlxSprite();
 		
-		_disparo = new Shoot(x, y, "assets/images/Laser.png");
+		_disparo = new Shoot(x, y, "assets/images/Laser_8bits.png");
 		_disparo.setPosition(x + (width - _disparo.width) / 2, y - _disparo.height);
         _disparo.alive = false;
 	}

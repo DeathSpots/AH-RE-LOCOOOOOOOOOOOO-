@@ -23,7 +23,7 @@ class Enemy extends FlxSprite
 
 	public function new(?X:Float = 0, ?Y:Float = 0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
-		super(X, Y, "assets/images/Enemy.png");
+		super(X, Y, "assets/images/Enemy_8bits.png");
 		
 		enemigo = new FlxSprite();
 		velocity.y = 5;

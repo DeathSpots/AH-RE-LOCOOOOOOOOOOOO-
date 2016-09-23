@@ -14,8 +14,7 @@ class EnemyBullet extends FlxSprite
 
 	public function new(?X:Float=0, ?Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
-		super(X, Y, SimpleGraphic);
-		makeGraphic(10, 10);		
+		super(X, Y, "assets/images/LaserEnemigo_8bits.png");		
 		velocity.y = 50;
 		FlxG.state.add(this);
 	}

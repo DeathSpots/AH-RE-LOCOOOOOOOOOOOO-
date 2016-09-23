@@ -24,7 +24,7 @@ class Shoot extends FlxSprite
 	
 	override public function update(elapsed : Float):Void{
 		
-		y -= 15;
+		y -= 5;
 	}
 	
 }

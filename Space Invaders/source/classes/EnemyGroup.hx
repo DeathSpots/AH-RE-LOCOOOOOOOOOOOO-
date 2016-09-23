@@ -25,7 +25,7 @@ class EnemyGroup extends FlxGroup
 			{
 				var _enemigo:Enemy;
 				_enemigo = new Enemy();
-				_enemigo.setPosition(_enemigo.distanciaEnemigos(CantEnX) * (j + 1) + _enemigo.width * j, 30 + i * 10 + i * _enemigo.height);
+				_enemigo.setPosition(_enemigo.distanciaEnemigos(CantEnX) * (j + 1) + _enemigo.width * j, i * 3 + i * _enemigo.height);
 				add(_enemigo);
 				Enemigossss.push(_enemigo);
 			}
