@@ -19,6 +19,7 @@ class Shoot extends FlxSprite
 		super(X, Y, SimpleGraphic);
 		
 		disparo = new FlxSprite();
+		
 	}
 	
 	override public function update(elapsed : Float):Void{

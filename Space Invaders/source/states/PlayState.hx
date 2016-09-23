@@ -21,7 +21,7 @@ class PlayState extends FlxState
 	private var _vsPlayerBullets:FlxGroup;
 	
 	//public var alienBullets:FlxGroup;
-	//private var _vsAlienBullets:FlxGroup;
+	private var _vsAlienBullets:FlxGroup;
 	
 	private var enjambre:EnemyGroup;
 	private var CEX:Int;
@@ -58,17 +58,23 @@ class PlayState extends FlxState
 		_vsPlayerBullets.add(_shields);
 		_vsPlayerBullets.add(enjambre);
 		
+		_vsAlienBullets = new FlxGroup();
+		_vsAlienBullets.add(_shields);
+		_vsAlienBullets.add(_nave);
+		
 	}
 	
 	override public function update(elapsed:Float):Void
 	{
 		for(i in 0...enjambre.length){
 			_vsPlayerBullets.add(cast(enjambre.members[i], Enemy).bullet);
+			
 		}
 		
 		super.update(elapsed);
 		_nave.ColDisparo(_vsPlayerBullets);
-		 
+		
+		cast(enjambre.members[0], Enemy).ColBullet(_vsAlienBullets);
 	}
 	
 }

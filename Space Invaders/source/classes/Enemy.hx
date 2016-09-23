@@ -6,6 +6,7 @@ import flixel.group.FlxGroup;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.math.FlxRandom;
 import states.PlayState;
+import flixel.FlxObject;
 
 /**
  * ...
@@ -14,10 +15,11 @@ import states.PlayState;
 class Enemy extends FlxSprite
 {
 	private var enemigo:FlxSprite;
-	private var _Xinicio:Float;
+
 	static private var CambioDir:Bool;
 	private var _relojDisparo:Float;
 	public var bullet:FlxSprite;
+	private var entidad2:FlxGroup;
 
 	public function new(?X:Float = 0, ?Y:Float = 0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
@@ -26,6 +28,20 @@ class Enemy extends FlxSprite
 		enemigo = new FlxSprite();
 		velocity.y = 5;
 		reloj();
+		
+	}
+	
+	public function ColBullet (entidad2:FlxGroup){
+		
+		FlxG.collide(bullet, entidad2, stuffHitStuff2);
+		
+	}
+	
+	private function stuffHitStuff2(Object1:FlxObject, Object2:FlxObject):Void
+	{
+		
+		Object1.kill();
+		Object2.kill();
 		
 	}
 	
@@ -45,7 +61,11 @@ class Enemy extends FlxSprite
 			bullet.reset(x + width / 2 - bullet.width / 2, y);
 			bullet.velocity.y = 50;
 			FlxG.state.add(bullet);
-			
+		
+		}
+		
+		if (bullet.y > FlxG.height){
+			bullet.destroy;
 		}
 		
 	}

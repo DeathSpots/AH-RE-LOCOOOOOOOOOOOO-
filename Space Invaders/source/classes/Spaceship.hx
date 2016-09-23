@@ -16,7 +16,7 @@ import flixel.FlxObject;
 class Spaceship extends FlxSprite
 {
 	private var nave:FlxSprite;
-	private var entidad:FlxGroup;
+	
 	
 	private var SoloUno:Bool;
 	private var _disparo:Shoot;
@@ -40,6 +40,7 @@ class Spaceship extends FlxSprite
 	
 	private function stuffHitStuff(Object1:FlxObject, Object2:FlxObject):Void
 	{
+		
 		Object1.kill();
 		Object2.kill();
 		SoloUno = false;
@@ -69,7 +70,7 @@ class Spaceship extends FlxSprite
 			_disparo.destroy;
 			SoloUno = false;
 		}
-		ColDisparo(entidad);
+		
 	}
 	
 	
