@@ -73,7 +73,7 @@ class PlayState extends FlxState
 			_enemigo.add(a);
 		}
 		*/
-		add(_enemigo);
+		//add(_enemigo);
 		
 		_shields = new FlxGroup();
 		
@@ -89,7 +89,7 @@ class PlayState extends FlxState
 		
 		_vsPlayerBullets = new FlxGroup();
 		_vsPlayerBullets.add(_shields);
-		_vsPlayerBullets.add(_enemigo);
+		_vsPlayerBullets.add(enjambre);
 		
 		
 		
