@@ -68,15 +68,15 @@ class PlayState extends FlxState
 		add(_enemigo);
 		
 		_shields = new FlxGroup();
-		var sprite:FlxSprite;
 		
-		for (i in 0...64)
+		
+		for (i in 0...64 )
 		{
-			sprite = new FlxSprite(160 + 80 * Std.int(i / 16)  + (i % 4) * 4, FlxG.height - 120 + (Std.int((i % 16) / 4) * 4));
-			sprite.makeGraphic(4, 4 );
+			var sprite:FlxSprite = new FlxSprite(160 + 80 * Std.int(i / 16)  + (i % 4) * 4, FlxG.height - 120 + (Std.int((i  % 16) / 4) * 4));
+			sprite.makeGraphic(4, 4);
 			_shields.add(sprite);
 		}
-		
+	
 		add(_shields);
 		
 		_vsPlayerBullets = new FlxGroup();
@@ -91,9 +91,7 @@ class PlayState extends FlxState
 	{
 		super.update(elapsed);
 		_nave.ColDisparo(_vsPlayerBullets);
-		
-		
-		
+		 
 	}
 	
 }

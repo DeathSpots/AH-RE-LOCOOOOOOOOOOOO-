@@ -40,8 +40,8 @@ class Spaceship extends FlxSprite
 	
 	private function stuffHitStuff(Object1:FlxObject, Object2:FlxObject):Void
 	{
-		Object1.destroy();
-		Object2.destroy();
+		Object1.kill();
+		Object2.kill();
 		SoloUno = false;
 	}
 	
@@ -50,15 +50,16 @@ class Spaceship extends FlxSprite
 		//CONSTROLES
 		super.update(elapsed);
 		
+		velocity.x = 0;
 		
 		if (FlxG.keys.pressed.RIGHT && x < FlxG.width - width-2)
-			x += 5;
+			velocity.x += 175;
 		
 		if (FlxG.keys.pressed.LEFT && x > 0)
-			x -= 5;
+			velocity.x -= 175;
 			
 			
-		if (FlxG.keys.pressed.SPACE && SoloUno == false){
+		if (FlxG.keys.justPressed.SPACE && SoloUno == false){
 			SoloUno = true;
 			_disparo = new Shoot(x/* + (width - _disparo.width) / 2*/, y/* - _disparo.height*/, "assets/images/Laser.png");
 			_disparo.setPosition(x + (width - _disparo.width) / 2, y - _disparo.height);
