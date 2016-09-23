@@ -30,6 +30,12 @@ class EnemyBullet extends FlxSprite
 			kill();
 			StaticReferences._nave.kill();	
 		}
+		if ( overlaps(StaticReferences._nave._disparo))
+		{
+			kill();
+			StaticReferences._nave._disparo.kill();
+			
+		}
 	}
 	
 }

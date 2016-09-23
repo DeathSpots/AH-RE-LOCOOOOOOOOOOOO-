@@ -19,17 +19,17 @@ class Spaceship extends FlxSprite
 	
 	
 	private var SoloUno:Bool;
-	private var _disparo:Shoot;
+	public var _disparo:Shoot;
 
 	public function new(X:Float=0, Y:Float=0, ?SimpleGraphic:FlxGraphicAsset) 
 	{
 		super(300, 400, "assets/images/Player.png");
 		
 		nave = new FlxSprite();
-		SoloUno = false;
-		_disparo = new Shoot(x/* + (width - _disparo.width) / 2*/, y/* - _disparo.height*/, "assets/images/Laser.png");
+		
+		_disparo = new Shoot(x, y, "assets/images/Laser.png");
 		_disparo.setPosition(x + (width - _disparo.width) / 2, y - _disparo.height);
-
+        _disparo.alive = false;
 	}
 	
 	public function ColDisparo (entidad:FlxGroup){
@@ -60,15 +60,15 @@ class Spaceship extends FlxSprite
 			velocity.x -= 175;
 			
 			
-		if (FlxG.keys.justPressed.SPACE && SoloUno == false){
-			SoloUno = true;
-			_disparo = new Shoot(x/* + (width - _disparo.width) / 2*/, y/* - _disparo.height*/, "assets/images/Laser.png");
+		if (FlxG.keys.justPressed.SPACE && !_disparo.alive){
+			_disparo.revive();
+			
 			_disparo.setPosition(x + (width - _disparo.width) / 2, y - _disparo.height);
 			FlxG.state.add(_disparo);
 		}
 		if (_disparo.y < 0){
-			_disparo.destroy;
-			SoloUno = false;
+			_disparo.kill();
+			
 		}
 		
 	}
